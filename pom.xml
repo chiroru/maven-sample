@@ -27,7 +27,7 @@
   <build>
     <finalName>${project.artifactId}</finalName>
     <sourceDirectory>src/main/java</sourceDirectory>
-    <testSourceDirectory>src/test/java, src/it/java</testSourceDirectory>
+    <testSourceDirectory>src/it/java</testSourceDirectory>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -87,10 +87,16 @@
         <version>2.15</version>
         <executions>
           <execution>
+            <id>verify</id>
             <goals>
               <goal>integration-test</goal>
               <goal>verify</goal>
             </goals>
+        <configuration>
+          <includes>
+            <include>**/*IntegrationTest.java</include>
+          </includes>
+        </configuration>
           </execution>
         </executions>
       </plugin>
